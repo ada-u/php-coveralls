@@ -61,7 +61,7 @@ class SourceFile extends Coveralls
     {
         $this->path   = $path;
         $this->name   = $name;
-        $this->source = trim(file_get_contents($path));
+        $this->source = trim(mb_convert_encoding(file_get_contents($path), 'UTF-8'));
 
         $lines = explode($eol, $this->source);
         $this->fileLines = count($lines);
